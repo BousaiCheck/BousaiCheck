@@ -62,8 +62,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 </head>
 <body>
 <header><div>
-<h1>お家の備蓄数、確認サイト</h1>
-<p>入力した内容は、この端末の中だけで処理され、外部に送信されることは一切ありません。</p>
+<h1>備蓄足りてるかな？一緒に確認しよう！</h1>
 </div></header>
 <main>
 
@@ -81,7 +80,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p class="note" style="margin-bottom:0">入力内容はこの端末のブラウザ内にだけ保存されます。サーバーには送信されません。</p>
 </section>
 
-<h2>お家の備え度</h2>
+<h2>あなたのお家は大丈夫？さっそくチェック！</h2>
 <div class="meter" role="status" aria-live="polite"><div class="big pcl">人数を選んでください</div><div class="bar"><i></i></div><p class="mn">備えは、ご家庭の経済的に無理のない範囲で構いません。まずは「優先」の物から、少しずつで大丈夫です。</p></div>
 <h2>持っている物にチェックを入れてください</h2>
 <div id="list"></div>
@@ -255,7 +254,7 @@ function render(){
  });
  box.innerHTML=h;
  const miss=L.filter(i=>!S.own[i.id]);
- const pm=miss.length?'残り <b>'+miss.length+'</b> / '+L.length+' 項目が必要です':'<b>'+L.length+' / '+L.length+'</b> 項目がそろっています';
+ const pm=miss.length?' <b>'+miss.length+'</b> / '+L.length+' が用意できてるよ！':'<b>'+L.length+' / '+L.length+'</b> 項目がそろっています';
  M(pm,Math.round((L.length-miss.length)/L.length*100)+"%");
  miss.sort((a,b)=>PRI.has(b.id)-PRI.has(a.id));
  nd.innerHTML=miss.length?miss.map(needRow).join(""):'<p class="card">必要な物はすべてそろっています。半年ごとの点検で、期限と数量を確かめましょう。</p>';
