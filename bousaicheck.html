@@ -51,7 +51,14 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 .rec{margin:14px 0 0;font-weight:700;font-size:1rem}.adtag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--mu);border:1px solid var(--mu);border-radius:3px;padding:0 5px;margin-left:4px;vertical-align:middle}.packs>small{font-size:.9rem;color:var(--ink)}.rec+a.btn{margin-top:8px}
 .wr{display:flex;gap:12px;align-items:flex-start}.wr p{flex:1}.ic{flex:none;width:60px;height:60px;color:var(--g);margin-top:6px}
 .ph{margin:12px 0 0;max-width:360px}.ph img{width:100%;height:auto;border-radius:4px;display:block}.ph figcaption{font-size:.75rem;line-height:1.6;color:#403a33;margin-top:6px}
-.grade{margin-top:12px}.gin{border-left:6px solid var(--rc,var(--g));padding-left:12px}.rk{display:inline-block;background:var(--rc);color:#fff;font-weight:700;font-size:.85rem;padding:2px 12px;border-radius:14px;margin-bottom:6px}.nx{font-weight:700;color:var(--g)}.grade h4{margin:16px 0 8px;font-size:1rem}.ag{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ab{display:flex;gap:8px;align-items:center;border:1px solid var(--bd);border-radius:6px;padding:8px;font-size:.85rem;background:#fff;line-height:1.4}.ab.on{border-color:var(--y);background:#fff8e1;font-weight:700}.ab.off{color:#6f6a62;background:#f3f1ec}.ab .ai{font-size:1.4rem}.ab small{display:block;font-size:.72rem;font-weight:400}.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);background:var(--g);color:#fff;padding:12px 20px;border-radius:24px;opacity:0;transition:.3s;z-index:9;font-weight:700;max-width:90%;text-align:center;pointer-events:none}.toast.on{opacity:1;transform:translate(-50%,0)}.grade:empty{display:none}.grade .gt{font-size:1.25rem;font-weight:700}.gp{display:inline-block;margin-left:10px;font-size:.85rem;color:var(--mu);font-weight:400}.grade p{margin:8px 0 10px;line-height:1.8}
+.grade{margin-top:12px}.gin{border-left:6px solid var(--rc,var(--g));padding-left:12px}.rk{display:inline-block;background:var(--rc);color:#fff;font-weight:700;font-size:.85rem;padding:2px 12px;border-radius:14px;margin-bottom:6px}.nx{font-weight:700;color:var(--g)}.grade h4{margin:16px 0 8px;font-size:1rem}.ag{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ab{display:flex;gap:8px;align-items:center;border:1px solid var(--bd);border-radius:6px;padding:8px;font-size:.85rem;background:#fff;line-height:1.4}.ab.on{border-color:var(--y);background:#fff8e1;font-weight:700}.ab.off{color:#6f6a62;background:#f3f1ec}.ab .ai{font-size:1.4rem}.ab small{display:block;font-size:.72rem;font-weight:400}.toast{position:fixed;left:0;right:0;margin:0 auto;width:-webkit-fit-content;width:fit-content;max-width:calc(100% - 32px);bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateY(40px);background:var(--g);color:#fff;padding:14px 22px;border-radius:28px;box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:0;transition:opacity .3s,transform .3s;z-index:1000;font-weight:700;text-align:center;line-height:1.5;pointer-events:none}.toast.on{opacity:1;transform:translateY(0)}.sbar{position:fixed;top:0;left:0;right:0;z-index:900;background:#fff;color:var(--ink);padding-top:env(safe-area-inset-top,0px);border-bottom:1px solid var(--bd);box-shadow:0 2px 10px rgba(0,0,0,.12);transform:translateY(-110%);transition:transform .25s}.sbar.on{transform:none}
+.sbar .pcl{max-width:720px;margin:0 auto;padding:8px 16px 6px;font-size:.9rem;line-height:1.3}
+.sbar .fr{display:inline-block;background:var(--fc,#fff);color:var(--ft,#222);border:1px solid rgba(0,0,0,.22);border-radius:22px;padding:2px 14px;font-weight:700;font-size:1.05rem;margin-right:8px}.sbar .fr b{font-size:1.7rem;color:inherit;margin-right:2px}
+.sbar .bar{height:4px;margin:0;border-radius:0;background:#e6e6e6}.sbar .bar i{background:var(--lc,#8a8f98)}
+.sbar[data-rk="3"]{--fc:linear-gradient(135deg,#e6ae78,#a5642c);--ft:#fff;--lc:#b8733a}
+.sbar[data-rk="4"]{--fc:linear-gradient(135deg,#f6f7f9,#a9b0ba);--ft:#222;--lc:#9aa1ab}
+.sbar[data-rk="5"]{--fc:linear-gradient(135deg,#ffe685,#d4a017);--ft:#3a2a00;--lc:#d4a017}
+.sbar[data-rk="6"]{--fc:linear-gradient(135deg,#f4fdff,#a8e4f7 55%,#62c1e8);--ft:#08384f;--lc:#4fb8e3}@media print{.sbar,.toast{display:none!important}}.grade:empty{display:none}.grade .gt{font-size:1.25rem;font-weight:700}.gp{display:inline-block;margin-left:10px;font-size:.85rem;color:var(--mu);font-weight:400}.grade p{margin:8px 0 10px;line-height:1.8}
 .refs{padding-left:20px}.refs li{margin:4px 0}
 @media(max-width:480px){.grid{grid-template-columns:1fr 1fr}}
 @media print{
@@ -126,6 +133,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p>水・簡易トイレ・食料などの数値は、これらの公的な考え方を参考にした概算です。最終的な数量は、上記の最新情報とご家庭の状況に合わせて調整してください。</p>
 </footer>
 </main>
+<div id="sbar" class="sbar"><div class="pcl">人数を選んでください</div><div class="bar"><i></i></div></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script>
 const UT="eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D";
@@ -148,7 +156,7 @@ function combo(need,P){
 const PRI=new Set(["water","toilet","staple","mobile","light"]);
 const KEY="bosai-plan-v1",$=s=>document.querySelector(s),c=Math.ceil;
 let S={adult:2,kid:0,infant:0,elder:0,pet:0,days:3,own:{},plan:{},ach:{}};
-let INIT=true;
+let INIT=true,PREV=null;
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
@@ -207,28 +215,29 @@ const GR=[
 [30,"備えの土台づくり中","3割以上がそろいました。いい調子です。次は、水・トイレ・ライトなど「優先」の物から足していくのがおすすめです。"],
 [10,"はじめの一歩","もう動き出せているのが素晴らしいです。まずは「優先」の印がついた物を、1つずつ確かめてみましょう。"],
 [0,"これからの伸びしろ","気づけたことが、大切な一歩です。無理のない範囲で、1つ用意できたら、もう前進です。"]];
-const RK={100:["プラチナ","#5b6b8c","🏆"],85:["ゴールド","#b8860b","🥇"],70:["シルバー","#6f757d","🥈"],50:["ブロンズ","#9a5b2e","🥉"],30:["ルーキー","#2f4a3c","🎖️"],10:["ビギナー","#2f4a3c","🌱"],0:["スタート","#2f4a3c","🚩"]};
+const RK={100:["プラチナ","#2ea4cf","🏆"],85:["ゴールド","#b8860b","🥇"],70:["ゴールド","#b8860b","🥇"],50:["シルバー","#6f757d","🥈"],30:["ブロンズ","#9a5b2e","🥉"],10:["スタート","#2f4a3c","🚩"],0:["スタート","#2f4a3c","🚩"]};
 const ACH=[
-["first","🌱","はじめの一歩","1つ用意する",c=>c.d>=1],
 ["water","💧","水のまもり人","飲料水をそろえる",c=>c.own.water],
 ["food","🍙","食料の達人","主食とおかずをそろえる",c=>c.own.staple&&c.own.side],
 ["toilet","🚽","トイレの安心","簡易トイレをそろえる",c=>c.own.toilet],
 ["light","🔦","明かりの番人","ライト・電池・バッテリー・ラジオ",c=>c.own.light&&c.own.bat&&c.own.mobile&&c.own.radio],
 ["pri","⭐","優先コンプリート","「優先」の物をすべてそろえる",c=>[...PRI].every(i=>c.own[i])],
-["half","🥉","折り返し地点","達成率50%",c=>c.pct>=50],
+["half","🥈","折り返し地点","達成率50%",c=>c.pct>=50],
 ["high","🥇","上級者の仲間入り","達成率85%",c=>c.pct>=85],
 ["all","🏆","防災マスター","すべてそろえる",c=>c.pct>=100]];
-function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(window.TT);window.TT=setTimeout(()=>e.classList.remove("on"),3200)}
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");try{navigator.vibrate&&navigator.vibrate(60)}catch(x){}clearTimeout(window.TT);window.TT=setTimeout(()=>e.classList.remove("on"),3200)}
 function grade(d,n){const pct=Math.round(d/n*100),i=GR.findIndex(x=>pct>=x[0]),g=GR[i],r=RK[g[0]],nx=GR[i-1];window.GRADE={d,n,t:g[1]};
- const c={d,pct,own:S.own},nw=[];
- ACH.forEach(a=>{if(a[4](c)&&!S.ach[a[0]]){S.ach[a[0]]=1;if(!INIT)nw.push(a)}});
- const up=!INIT&&S.rk!==undefined&&g[0]>S.rk;S.rk=Math.max(S.rk||0,g[0]);save();
+ const c={d,pct,own:S.own},now={};ACH.forEach(a=>now[a[0]]=!!a[4](c));
+ const lv=({100:4,85:3,70:3,50:2,30:1})[g[0]]||0;
+ const nw=(INIT||!PREV)?[]:ACH.filter(a=>now[a[0]]&&!PREV.a[a[0]]),up=!INIT&&!!PREV&&lv>PREV.l;
+ PREV={a:now,l:lv};
+ const sbr=document.querySelector("#sbar");if(sbr&&sbr.setAttribute)sbr.setAttribute("data-rk",lv>0?lv+2:0);
  if(up)toast("🎉 ランクアップ！「"+r[0]+"」に到達");else if(nw.length)toast("🏆 実績解除！「"+nw[0][2]+"」"+(nw.length>1?" ほか"+(nw.length-1)+"件":""));
- const got=ACH.filter(a=>S.ach[a[0]]).length;
+ const got=ACH.filter(a=>now[a[0]]).length;
  $("#grade").innerHTML='<div class="gin" style="--rc:'+r[1]+'"><div class="rk">'+r[2]+' '+r[0]+'ランク</div><div class="gt">'+g[1]+'<span class="gp">達成率 '+pct+'%</span></div><p>'+g[2]+'</p>'
  +(nx?'<p class="nx">次は「'+nx[1]+'」まで、あと '+(Math.ceil(nx[0]*n/100)-d)+' 項目！</p>':'<p class="nx">最高ランクに到達しました！</p>')
  +(g[3]?'<button class="btn sub" onclick="shareGrade()">友達にシェアする</button>':"")
- +'<h4>🏅 実績 '+got+' / '+ACH.length+'</h4><div class="ag">'+ACH.map(a=>S.ach[a[0]]?'<div class="ab on"><span class="ai">'+a[1]+'</span><span>'+a[2]+'</span></div>':'<div class="ab off"><span class="ai">🔒</span><span>'+a[2]+'<small>'+a[3]+'</small></span></div>').join("")+'</div></div>'}
+ +'<h4>🏅 実績 '+got+' / '+ACH.length+'</h4><div class="ag">'+ACH.map(a=>now[a[0]]?'<div class="ab on"><span class="ai">'+a[1]+'</span><span>'+a[2]+'</span></div>':'<div class="ab off"><span class="ai">🔒</span><span>'+a[2]+'<small>'+a[3]+'</small></span></div>').join("")+'</div></div>'}
 function shareGrade(){const g=window.GRADE||{},t="私の備え度は "+g.d+"/"+g.n+"『"+g.t+"』！あなたのお家は大丈夫？",u=location.href;
  if(navigator.share){navigator.share({title:document.title,text:t,url:u}).catch(()=>{})}
  else(navigator.clipboard?navigator.clipboard.writeText(t+" "+u):Promise.reject()).then(()=>alert("コピーしました"),()=>prompt("コピーしてください",t+" "+u))}
@@ -306,7 +315,11 @@ function needRow(i){
  }else if(i.q)btn='<a class="btn sub" href="'+href(i)+'" target="_blank" rel="sponsored noopener">推奨</a>';
  return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">おすすめの商品はこちらです <span class="adtag">PR</span></p>'+body+btn:"")+'</div></div>';
 }
-function M(h,w){document.querySelectorAll(".pcl").forEach(e=>e.innerHTML=h);document.querySelectorAll(".bar i").forEach(e=>e.style.width=w)}
+function sb(){const m=document.querySelectorAll(".meter"),b=document.querySelector("#sbar");if(!m.length||!b)return;
+ const r1=m[0].getBoundingClientRect(),r2=m[1]&&m[1].getBoundingClientRect(),H=window.innerHeight||0;
+ b.classList.toggle("on",r1.bottom<0&&!(r2&&r2.top<H&&r2.bottom>0))}
+if(window.addEventListener){window.addEventListener("scroll",sb,{passive:true});window.addEventListener("resize",sb)}
+function M(h,w){document.querySelectorAll(".pcl").forEach(e=>e.innerHTML=h);document.querySelectorAll(".bar i").forEach(e=>e.style.width=w);sb()}
 function render(){
  const L=build(),box=$("#list"),nd=$("#need");
  if(!L.length){box.innerHTML='<p class="card">人数を1人以上選ぶと、必要な備蓄が表示されます。</p>';nd.innerHTML="";M("人数を選んでください","0");$("#grade").innerHTML="";window.NEED="";return}
@@ -322,7 +335,7 @@ function render(){
  });
  box.innerHTML=h;
  const miss=L.filter(i=>!S.own[i.id]);
- const pm='<b>'+(L.length-miss.length)+'</b> / '+L.length+' が用意出来てるよ！';
+ const pm='<span class="fr"><b>'+(L.length-miss.length)+'</b> / '+L.length+'</span> が用意出来てるよ！';
  M(pm,Math.round((L.length-miss.length)/L.length*100)+"%");
  grade(L.length-miss.length,L.length);
  miss.sort((a,b)=>PRI.has(b.id)-PRI.has(a.id));
