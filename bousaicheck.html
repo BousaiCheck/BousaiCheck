@@ -46,7 +46,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 .need a.btn{padding:8px 12px;font-size:.9rem}
 .pri{display:inline-block;background:var(--bad);color:#fff;font-size:.75rem;padding:0 6px;border-radius:3px;margin-right:6px}
 .tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.packs{margin-top:8px}.packs .pk{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:10px;background:var(--card);border:1px solid var(--bd);border-radius:4px}.pk img{width:92px;height:92px;flex:none;object-fit:contain;background:#fff;border:1px solid var(--bd);border-radius:4px}.pk .pi{flex:1;min-width:0}.pk .pt{display:block;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.5}.pk .pp{display:block;margin:4px 0;font-weight:700}.pk .btn{margin-top:6px;padding:8px 12px;font-size:.88rem}.packs .pk em{font-style:normal;font-weight:700;color:var(--g)}.packs>small{margin-top:8px}
+.packs{margin-top:8px}.packs .pk{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:10px;background:var(--card);border:1px solid var(--bd);border-radius:4px}.pk img{width:92px;height:92px;flex:none;object-fit:contain;background:#fff;border:1px solid var(--bd);border-radius:4px}.pk .pi{flex:1;min-width:0}.pk .pt{display:block;font-weight:700;color:var(--ink);text-decoration:none;line-height:1.5}.pk .pp{display:block;margin:4px 0;font-weight:700}.pk .btn{margin-top:6px;padding:8px 12px;font-size:.88rem}.packs .pk em{font-style:normal;font-weight:700;color:#cf9a00;font-size:1.15em}.packs>small{margin-top:8px}
 .why{margin-top:6px}.why summary{cursor:pointer;color:var(--g);font-size:.95rem;font-weight:700}.why[open]{background:var(--card);border-left:4px solid var(--g);border-radius:4px;padding:10px 12px}.why p{margin:8px 0 0;font-size:1rem;line-height:1.85;color:var(--ink)}.why .src{font-size:.86rem;line-height:1.7;color:#403a33;word-break:break-all}.why .src a{color:var(--g);text-decoration:underline}
 .rec{margin:14px 0 0;font-weight:700;font-size:1rem}.adtag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--mu);border:1px solid var(--mu);border-radius:3px;padding:0 5px;margin-left:4px;vertical-align:middle}.packs>small{font-size:.9rem;color:var(--ink)}.rec+a.btn{margin-top:8px}
 .wr{display:flex;gap:12px;align-items:flex-start}.wr p{flex:1}.ic{flex:none;width:60px;height:60px;color:var(--g);margin-top:6px}
@@ -138,15 +138,22 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <script>
 const UT="eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0dGV4dCIsInNpemUiOiIyNDB4MjQwIiwibmFtIjoxLCJuYW1wIjoicmlnaHQiLCJjb20iOjEsImNvbXAiOiJkb3duIiwicHJpY2UiOjEsImJvciI6MSwiY29sIjoxLCJiYnRuIjowLCJwcm9kIjowLCJhbXAiOmZhbHNlfQ%3D%3D";
 const aff=p=>"https://hb.afl.rakuten.co.jp/ichiba/"+p.id+"/?pc="+encodeURIComponent("https://item.rakuten.co.jp/"+p.path+"/")+"&link_type=picttext&ut="+UT;
-const img=p=>"https://hbb.afl.rakuten.co.jp/hgb/"+p.id+"/?me_id="+p.me+"&item_id="+p.item+"&pc="+encodeURIComponent("https://thumbnail.image.rakuten.co.jp/@0_mall/"+p.img+"?_ex=240x240")+"&s=240x240&t=picttext";
+const img=p=>"https://hbb.afl.rakuten.co.jp/hgb/"+p.id+"/?me_id="+p.me+"&item_id="+p.item+"&pc="+encodeURIComponent(p.u||("https://thumbnail.image.rakuten.co.jp/@0_mall/"+p.img+"?_ex=240x240"))+"&s="+(p.sz||"240x240")+"&t=picttext";
 /* 品目ID → 楽天アフィリエイトのリンク一覧。n=1パックの数量(品目の単位)、me/item/img=画像表示用 */
 const PK={
- water:[{n:6,label:"保存水 7年 2L×6本(1ケース)",id:"595bc134.327a865d.595bc135.215997a6",path:"seishoku3941/10000015",me:"1368460",item:"10000015",img:"seishoku3941/cabinet/06478174/imgrc0079407869.jpg"}],
+ water:[{n:6,label:"保存水 1ケース（2L×6）",id:"595bc134.327a865d.595bc135.215997a6",path:"seishoku3941/10000015",me:"1368460",item:"10000015",img:"seishoku3941/cabinet/06478174/imgrc0079407869.jpg"}],
+ mobile:[{n:1,label:"防災士監修 ソーラー・手回し対応 モバイルバッテリー 63200mAh",id:"596c5849.2f909f02.596c584a.96d702a9",path:"torreya-shop/100000037",me:"1322774",item:"10000074",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/torreya-shop/cabinet/09381333/thumbnail240328.jpg?_ex=300x300",sz:"300x300"}],
+ toilet:[{n:50,label:"簡易トイレ 15年長期保存 凝固剤セット（50回分）",id:"596c32f9.57358ad4.596c32fa.0d976c92",path:"soppy/o302419",me:"1402930",item:"10000378",img:"soppy/cabinet/08931518/o302419.jpg"}],
+ light:[
+  {n:1,label:"LEDヘッドライト 小型・軽量",id:"596c3f41.1eb88443.596c3f42.1867163f",path:"okbasket/20180417s0003",me:"1349929",item:"10000044",img:"okbasket/cabinet/2024/imgrc0092878006.jpg"},
+  {n:1,label:"懐中電灯 防災ライト 高輝度ハンディ",id:"596c43f7.2fcbe518.596c43f8.443fd225",path:"sanjunnikoniko/s463",me:"1408969",item:"10000681",u:"https://image.rakuten.co.jp/sanjunnikoniko/cabinet/08976626/463-5.jpg?_ex=300x300",sz:"300x300"}],
  staple:[
   {n:9,label:"非常食セット 1人用/3日分 9食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001686",me:"1285908",item:"10010955",img:"peaceup/cabinet/items-thumbnail2/10001686sku-01.jpg"},
   {n:36,label:"非常食セット 4人用/3日分 36食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001680",me:"1285908",item:"10010947",img:"peaceup/cabinet/items-thumbnail2/10001680sku-01.jpg"}]
 };
 function combo(need,P){
+ if(P.some(p=>!p.n))return{none:1,cnt:P.map(()=>0)};
+ if(P.every(p=>p.n===P[0].n)){const k=Math.ceil(need/P[0].n);return{alt:P.length>1,cnt:P.map(()=>k),total:k*P[0].n}}
  const mx=Math.max(...P.map(p=>p.n)),T=need+mx,INF=1e9,dp=Array(T+1).fill(INF),pr=Array(T+1).fill(-1);dp[0]=0;
  for(let a=1;a<=T;a++)P.forEach((p,k)=>{if(a>=p.n&&dp[a-p.n]+1<dp[a]){dp[a]=dp[a-p.n]+1;pr[a]=k}});
  let best=need;while(best<=T&&dp[best]>=INF)best++;
@@ -309,11 +316,11 @@ function needRow(i){
  const pri=PRI.has(i.id)?'<span class="pri">優先</span>':"",P=PK[i.id];let body="",btn="";
  if(P){
   const r=combo(i.qty,P),ex=r.total-i.qty;
-  body='<div class="packs">'+P.map((p,k)=>{if(!r.cnt[k])return"";const u=aff(p),rl=' target="_blank" rel="nofollow sponsored noopener"';
-   return'<div class="pk"><a href="'+u+'"'+rl+'><img src="'+img(p)+'" alt="'+esc(p.label)+'" width="92" height="92" loading="lazy"></a><div class="pi"><a class="pt" href="'+u+'"'+rl+'>'+esc(p.label)+' <em>× '+r.cnt[k]+'</em></a><a class="btn sub" href="'+u+'"'+rl+'>推奨される商品</a></div></div>'}).join("")
-  +'<small>合計 '+r.total+i.unit+(ex?'('+ex+i.unit+'多め)':'(必要数ちょうど)')+'</small></div>';
+  body='<div class="packs">'+P.map((p,k)=>{if(!r.none&&!r.cnt[k])return"";const u=aff(p),rl=' target="_blank" rel="nofollow sponsored noopener"';
+   return'<div class="pk"><a href="'+u+'"'+rl+'><img src="'+img(p)+'" alt="'+esc(p.label)+'" width="92" height="92" loading="lazy"></a><div class="pi"><a class="pt" href="'+u+'"'+rl+'>'+esc(p.label)+(r.none?"":' <em>× '+r.cnt[k]+'</em>')+'</a><a class="btn sub" href="'+u+'"'+rl+'>推奨される商品</a></div></div>'}).join("")
+  +(r.none?"":r.alt?'<small>どれか1つを選べば、'+i.qty+i.unit+'そろいます</small>':'<small>合計 '+r.total+i.unit+(ex?'('+ex+i.unit+'多め)':'(必要数ちょうど)')+'</small>')+'</div>';
  }else if(i.q)btn='<a class="btn sub" href="'+href(i)+'" target="_blank" rel="sponsored noopener">推奨</a>';
- return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">おすすめの商品はこちらです <span class="adtag">PR</span></p>'+body+btn:"")+'</div></div>';
+ return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">対策としておすすめの商品は👇🏻✨ <span class="adtag">PR</span></p>'+body+btn:"")+'</div></div>';
 }
 function sb(){const m=document.querySelectorAll(".meter"),b=document.querySelector("#sbar");if(!m.length||!b)return;
  const r1=m[0].getBoundingClientRect(),r2=m[1]&&m[1].getBoundingClientRect(),H=window.innerHeight||0;
@@ -340,7 +347,7 @@ function render(){
  grade(L.length-miss.length,L.length);
  miss.sort((a,b)=>PRI.has(b.id)-PRI.has(a.id));
  nd.innerHTML=miss.length?miss.map(needRow).join(""):'<p class="card">必要な物はすべてそろっています。半年ごとの点検で、期限と数量を確かめましょう。</p>';
- window.NEED=miss.map(i=>{const P=PK[i.id];let t="・"+i.name+" "+i.qty+i.unit;if(P){const r=combo(i.qty,P);t+=" → "+P.map((p,k)=>r.cnt[k]?p.label+"×"+r.cnt[k]:"").filter(Boolean).join(" + ")}return t}).join("\n");
+ window.NEED=miss.map(i=>{const P=PK[i.id];let t="・"+i.name+" "+i.qty+i.unit;if(P){const r=combo(i.qty,P);t+=" → "+P.map((p,k)=>r.cnt[k]?p.label+"×"+r.cnt[k]:"").filter(Boolean).join(r.alt?" または ":" + ")}return t}).join("\n");
 }
 function copyNeed(){
  const t="【お家の買い足しリスト】\n"+(window.NEED||"(なし)");
