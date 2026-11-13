@@ -78,7 +78,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p>入力した内容は、この端末の中だけで処理され、外部に送信されることは一切ありません。</p>
 </div></header>
 <main>
- 
+
 <h2 id="form-h">家族の人数を選択してください</h2>
 <section id="form" class="card" aria-labelledby="form-h">
 <div class="grid">
@@ -86,7 +86,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <label class="f">小学生以下<select id="kid"></select></label>
 <label class="f">乳幼児(2歳くらいまで)<select id="infant"></select></label>
 <label class="f">高齢の方(65歳以上)<select id="elder"></select></label>
-<label class="f">生理のある方<small>上の人数のうち</small><select id="women"></select></label>
+<label class="f">生理用品をお使いの方<small>上の人数のうち</small><select id="women"></select></label>
 <label class="f">ペット<select id="pet"></select></label>
 <label class="f">備える日数
 <select id="days"><option value="3">3日分(最低ライン)</option><option value="7">7日分(推奨)</option></select></label>
@@ -94,7 +94,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p class="praise" id="dpraise"></p>
 <p class="note" style="margin-bottom:0">入力内容はこの端末のブラウザ内にだけ保存されます。サーバーには送信されません。</p>
 </section>
- 
+
 <h2>あなたのお家は大丈夫？さっそくチェック！</h2>
 <div class="meter" role="status" aria-live="polite"><div class="big pcl">人数を選んでください</div><div class="bar"><i></i></div><p class="mn">備えは、ご家庭の経済的に無理のない範囲で構いません。まずは「優先」の物から、少しずつで大丈夫です。</p></div>
 <h2>持っている物にチェックを入れてください</h2>
@@ -105,14 +105,14 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p class="note">PR:「推奨される商品」のリンクは広告(アフィリエイト)を含みます。価格・在庫は変わるため、各ショップでご確認ください。</p>
 <div id="need"></div>
 <div class="tools"><button class="btn" onclick="copyNeed()">リストをコピー(LINEなどで共有)</button><button class="btn sub" onclick="resetOwn()">チェックをリセット</button></div>
- 
+
 <h2 id="hz">家の周りの危険を確認する</h2>
 <div class="card">
 <p style="margin-top:0">住所ごとの浸水・土砂災害・津波のリスクは、国の公式地図で確認します。</p>
 <a class="btn" href="https://disaportal.gsi.go.jp/" target="_blank" rel="noopener">重ねるハザードマップを開く</a>
 <p class="note" style="margin-bottom:0">国土地理院の公式サイトです。避難の最終判断は、自治体・気象庁の最新情報に従ってください。</p>
 </div>
- 
+
 <h2 id="rem">備蓄の点検日を、カレンダーに登録する</h2>
 <div class="card">
 <p style="margin-top:0">半年ごとに繰り返す点検の予定を作ります。スマホのカレンダーに取り込めます。</p>
@@ -120,7 +120,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p><button onclick="mkIcs()">カレンダーファイルを作る</button></p>
 <p class="note" style="margin-bottom:0">ダウンロードしたファイルを開くと、Google カレンダーや iPhone のカレンダーに追加できます。</p>
 </div>
- 
+
 <footer>
 <p><b>目安の根拠:</b>水は1人1日3L、簡易トイレは1人1日5回、食料は1人1日3食を基準にしています。政府・自治体が公開している備蓄の考え方(最低3日分、できれば1週間分)に沿った概算です。持病・乳幼児・高齢の方がいる場合は、かかりつけ医や自治体の案内も確認してください。</p>
 <p><b>広告について:</b>「推奨される商品」のリンクは広告(アフィリエイト)を含みます(「推奨」のボタンは、楽天市場の検索結果へのリンクです)。購入されると運営の収益になることがありますが、診断結果には影響しません。価格・在庫は各ショップでご確認ください。</p>
@@ -167,7 +167,7 @@ const PK={
   {n:9,label:"非常食セット 1人用/3日分 9食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001686",me:"1285908",item:"10010955",img:"peaceup/cabinet/items-thumbnail2/10001686sku-01.jpg"},
   {n:36,label:"非常食セット 4人用/3日分 36食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001680",me:"1285908",item:"10010947",img:"peaceup/cabinet/items-thumbnail2/10001680sku-01.jpg"}]
 };
-const SHOP=new Set(["paper","wet","bag","wrap","napkin","shorts"]),SHOPMSG="🛒 おすすめは、お近くのスーパーでのご購入です。最も素早くかつ、値段を抑えて備蓄できます。",SHOPX={med:"🏥 対策として、通われている薬局にご相談されることをおすすめします。"};
+const SHOP=new Set(["paper","wet","bag","wrap","napkin","shorts"]),SHOPMSG="🛒 おすすめは、お近くのスーパーでの購入です。最も素早くかつ、値段を抑えて備えることが出来ます。",SHOPX={med:"🏥 対策として、通われている薬局にご相談されることをおすすめします。"};
 function combo(need,P){
  if(P.some(p=>!p.n))return{none:1,cnt:P.map(()=>0)};
  if(P.every(p=>p.n===P[0].n)){const k=Math.ceil(need/P[0].n);return{alt:P.length>1,cnt:P.map(()=>k),total:k*P[0].n}}
@@ -184,7 +184,7 @@ let INIT=true,PREV=null;
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
- 
+
 const SR={
 k:["内閣府男女共同参画局 防災関連資料(女性・乳幼児に必要な物資)","https://www.gender.go.jp/policy/saigai/pdf/011010_01.pdf"],
 a:["内閣府「避難所におけるトイレの確保・管理ガイドライン」","https://www.bousai.go.jp/taisaku/hinanjo/pdf/2204hinanjo_toilet_guideline.pdf"],
@@ -318,8 +318,8 @@ function build(){
  a("けが・寒さ・暮らし","blanket","アルミブランケット・寝袋",n,"枚","","アルミブランケット 防災");
  a("けが・寒さ・暮らし","wrap","食品用ラップ・アルミホイル",2,"本","食器に敷けば洗い水を節約できる","食品用ラップ");
  a("けが・寒さ・暮らし","cash","小銭・現金",1,"袋","停電時はキャッシュレスが使えない","");
- a("生理のある方がいる場合","napkin","生理用ナプキン(長時間用もあると安心)",women*(d>=7?2:1),"パック","1人あたり、3日分で1パック・7日分で2パックを目安にしています。使い慣れた物を","");
- a("生理のある方がいる場合","shorts","サニタリーショーツ",women*(d>=7?2:1),"枚","汚れた時に替えられるように","");
+ a("生理用品をお使いの方がいる場合","napkin","生理用ナプキン(長時間用もあると安心)",women*(d>=7?2:1),"パック","1人あたり、3日分で1パック・7日分で2パックを目安にしています。使い慣れた物を","");
+ a("生理用品をお使いの方がいる場合","shorts","サニタリーショーツ",women*(d>=7?2:1),"枚","汚れた時に替えられるように","");
  a("乳幼児がいる場合","milk","液体ミルク・粉ミルクと哺乳瓶",infant*d,"日分","お湯が使えない時は液体ミルクが便利","液体ミルク 常温保存");
  a("乳幼児がいる場合","dia","おむつ",infant*8*d,"枚","1日8枚で計算","おむつ 新生児 テープ");
  a("乳幼児がいる場合","wipe","おしりふき",infant*d,"パック","","おしりふき 厚手");
