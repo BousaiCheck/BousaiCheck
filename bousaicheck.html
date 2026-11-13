@@ -60,7 +60,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 .sbar[data-rk="5"]{--fc:linear-gradient(135deg,#ffe685,#d4a017);--ft:#3a2a00;--lc:#d4a017}
 .sbar[data-rk="6"]{--fc:linear-gradient(135deg,#f4fdff,#a8e4f7 55%,#62c1e8);--ft:#08384f;--lc:#4fb8e3}@media print{.sbar,.toast{display:none!important}}.grade:empty{display:none}.grade .gt{font-size:1.25rem;font-weight:700}.gp{display:inline-block;margin-left:10px;font-size:.85rem;color:var(--mu);font-weight:400}.grade p{margin:8px 0 10px;line-height:1.8}
 #days.on7{color:#7a5200;font-weight:700;border-color:#d4a017;background:#fff8e1}.praise{margin:12px 0 0;padding:8px 12px;background:#fff8e1;border:1px solid #e0b43a;border-radius:6px;color:#7a5200;font-weight:700}.praise:empty{display:none}
-.shop{margin:12px 0 0;padding:8px 12px;background:#fff;border:1px solid var(--bd);border-radius:6px;font-weight:700;line-height:1.7}
+.shop{margin:12px 0 0;padding:10px 12px;background:#e6f3ea;border:0;border-radius:6px;color:#1f5f3f;font-weight:700;line-height:1.7}
 .refs{padding-left:20px}.refs li{margin:4px 0}
 @media(max-width:480px){.grid{grid-template-columns:1fr 1fr}}
 @media print{
@@ -86,6 +86,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <label class="f">小学生以下<select id="kid"></select></label>
 <label class="f">乳幼児(2歳くらいまで)<select id="infant"></select></label>
 <label class="f">高齢の方(65歳以上)<select id="elder"></select></label>
+<label class="f">生理のある方<small>上の人数のうち</small><select id="women"></select></label>
 <label class="f">ペット<select id="pet"></select></label>
 <label class="f">備える日数
 <select id="days"><option value="3">3日分(最低ライン)</option><option value="7">7日分(推奨)</option></select></label>
@@ -146,6 +147,10 @@ const img=p=>"https://hbb.afl.rakuten.co.jp/hgb/"+p.id+"/?me_id="+p.me+"&item_id
 const PK={
  water:[{n:6,label:"保存水 1ケース（2L×6）",id:"595bc134.327a865d.595bc135.215997a6",path:"seishoku3941/10000015",me:"1368460",item:"10000015",img:"seishoku3941/cabinet/06478174/imgrc0079407869.jpg"}],
  mobile:[{n:1,label:"防災士監修 ソーラー・手回し対応 モバイルバッテリー 63200mAh",id:"596c5849.2f909f02.596c584a.96d702a9",path:"torreya-shop/100000037",me:"1322774",item:"10000074",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/torreya-shop/cabinet/09381333/thumbnail240328.jpg?_ex=300x300",sz:"300x300"}],
+ radio:[{n:1,label:"KOTUBAME 多機能防災ラジオ（手回し・ソーラー対応）",id:"5978a467.de88c3ca.5978a469.a42b32b4",path:"kotsubame/ktbm-hy-088",me:"1424513",item:"10000013",u:"https://image.rakuten.co.jp/kotsubame/cabinet/10406945/10442453/10450299/5.jpg?_ex=300x300",sz:"300x300"}],
+ blanket:[{n:1,label:"防災士推奨 アルミブランケット（静音タイプ）",id:"5978aa8e.761c1971.5978aa8f.578387ff",path:"ecoride/sabage-125-03",me:"1322293",item:"10000989",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/ecoride/cabinet/img3/sabage-125-03-1.jpg?_ex=300x300",sz:"300x300"},
+  {n:1,label:"4層 厚手 アルミブランケット（静音・保温）",id:"5978aa8e.761c1971.5978aa8f.578387ff",path:"ecoride/sabage-128",me:"1322293",item:"10001290",u:"https://image.rakuten.co.jp/ecoride/cabinet/img2/sabaga-128-01_01.jpg?_ex=300x300",sz:"300x300"}],
+ milk:[{label:"和光堂 レーベンスミルク はいはい（810g×2個パック）",id:"5978b687.f1f59259.5978b688.e6bc22c9",path:"tsuruha/10178390",me:"1274827",item:"10111119",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/tsuruha/cabinet/syohin91/10178390.jpg?_ex=300x300",sz:"300x300"}],
  mask:[{label:"ニトリル手袋 使い捨て 100枚〜",id:"597866eb.0c8114af.597866ec.0481ab33",path:"tenkapas/glove001",me:"1249475",item:"10010258",img:"tenkapas/cabinet/item_image/item_health_beauty/sanitary-goods/glove001-2026.jpg"}],
  bat:[{n:20,label:"パナソニック アルカリ乾電池 4本入り×5（20本・10年保存）",id:"597871ab.f46f9978.597871ac.8a6a6ace",path:"bp-shop/10017803-ko3",me:"1281850",item:"10017928",u:"https://image.rakuten.co.jp/bp-shop/cabinet/goq013/imgrc0063255631.jpg?_ex=300x300",sz:"300x300"}],
  gas:[{n:3,label:"アイリスオーヤマ カセットボンベ（3本セット）",id:"59787ab7.8620a036.59787ab8.2b1b880b",path:"irisplaza-r/7253292",me:"1358201",item:"10149345",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/10535017/imgrc0101523164.jpg?_ex=300x300",sz:"300x300"}],
@@ -162,7 +167,7 @@ const PK={
   {n:9,label:"非常食セット 1人用/3日分 9食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001686",me:"1285908",item:"10010955",img:"peaceup/cabinet/items-thumbnail2/10001686sku-01.jpg"},
   {n:36,label:"非常食セット 4人用/3日分 36食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001680",me:"1285908",item:"10010947",img:"peaceup/cabinet/items-thumbnail2/10001680sku-01.jpg"}]
 };
-const SHOP=new Set(["paper","wet","bag","wrap"]),SHOPMSG="🛒 おすすめは、お近くのスーパーでの購入です。最も安く即備蓄できます。",SHOPX={med:"🏥 対策として、通われている薬局にご相談されることをおすすめします。"};
+const SHOP=new Set(["paper","wet","bag","wrap","napkin","shorts"]),SHOPMSG="🛒 おすすめは、お近くのスーパーでのご購入です。最も素早くかつ、値段を抑えて備蓄できます。",SHOPX={med:"🏥 対策として、通われている薬局にご相談されることをおすすめします。"};
 function combo(need,P){
  if(P.some(p=>!p.n))return{none:1,cnt:P.map(()=>0)};
  if(P.every(p=>p.n===P[0].n)){const k=Math.ceil(need/P[0].n);return{alt:P.length>1,cnt:P.map(()=>k),total:k*P[0].n}}
@@ -174,13 +179,14 @@ function combo(need,P){
 }
 const PRI=new Set(["water","toilet","staple","mobile","light"]);
 const KEY="bosai-plan-v1",$=s=>document.querySelector(s),c=Math.ceil;
-let S={adult:2,kid:0,infant:0,elder:0,pet:0,days:3,own:{},plan:{},ach:{}};
+let S={adult:2,kid:0,infant:0,elder:0,pet:0,women:0,days:3,own:{},plan:{},ach:{}};
 let INIT=true,PREV=null;
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
  
 const SR={
+k:["内閣府男女共同参画局 防災関連資料(女性・乳幼児に必要な物資)","https://www.gender.go.jp/policy/saigai/pdf/011010_01.pdf"],
 a:["内閣府「避難所におけるトイレの確保・管理ガイドライン」","https://www.bousai.go.jp/taisaku/hinanjo/pdf/2204hinanjo_toilet_guideline.pdf"],
 b:["共同通信「災害時に繰り返されるトイレ問題」(2026/9/18)","https://www.kyodo.co.jp/life/2026-09-18_4036254/"],
 c:["内閣府「災害に備えた生活用水の確保について」","https://www.cas.go.jp/jp/seisaku/gmpp/about/reports/pdf/saigai_r7_1.pdf"],
@@ -193,6 +199,8 @@ i:["栃木県 災害時の備え(高齢者・介護)","https://www.pref.tochigi.
 j:["nippon.com「ペットの同行避難の原則」","https://www.nippon.com/ja/japan-data/h02729/"]};
 /* 品目ID:[解説, 出典キー…]。出典がない場合は「一般的な説明」と表示 */
 const W={
+napkin:["生理用ナプキンは、女性が早い段階で必要になる物資の代表として、国の資料でも挙げられています。避難所では、希望を言い出しにくいこともあります。使い慣れた物を自分で備えておけば、安心して過ごせます。","k"],
+shorts:["サニタリーショーツやおりものシートも、女性の備蓄品として国の資料に挙げられています。水が使いにくい時は、替えがあると清潔を保ちやすくなります。","k"],
 water:["断水すると、飲み水だけでなく手洗いやトイレに使う水も足りなくなります。能登半島地震では最大約11万戸が断水し、生活用水の確保が大きな課題になりました。まず3日分を目安に備えると安心です。","d","c"],
 staple:["支援物資が届くまでの数日間は、手元の食料が頼りになります。農林水産省は、家庭での食料備蓄を呼びかけています。","e"],
 side:["主食だけでは、食が進まなくなることがあります。食べ慣れたおかずがあると、避難生活でも食事を続けやすくなります。","e"],
@@ -288,7 +296,7 @@ PH.bat=PH.light;
 function icon(id){return'<svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IP[IM[id]||"g"]+'<circle cx="54" cy="10" r="9" fill="#9c2a2a" stroke="none"/><path d="M54 5v6M54 15v.5" stroke="#fff" stroke-width="2.4"/></svg>'}
 function photo(id){const q=PH[id];return q?'<figure class="ph"><a href="'+esc(q.src)+'" target="_blank" rel="noopener"><img src="'+esc(q.src)+'" alt="'+esc(q.alt)+'" loading="lazy"></a><figcaption><b>'+esc(q.t)+'</b>'+(q.d?'('+esc(q.d)+')':"")+'<br>出典(又は写真提供):(一財)消防防災科学センター「災害写真データベース」</figcaption></figure>':""}
 function build(){
- const{adult,kid,infant,elder,pet,days:d}=S,n=adult+kid+infant+elder,f=n-infant,L=[];
+ const{adult,kid,infant,elder,pet,women,days:d}=S,n=adult+kid+infant+elder,f=n-infant,L=[];
  const a=(cat,id,name,qty,unit,note,q)=>{if(qty>0)L.push({cat,id,name,qty,unit,note,q:q||name})};
  a("水・食料","water","飲料水(2Lボトル)",c(n*3*d/2),"本","1人1日3Lが目安","飲料水 2L 長期保存");
  a("水・食料","staple","主食(アルファ米・パックごはん・乾麺など)",f*3*d,"食","1人1日3食","アルファ米 非常食");
@@ -310,6 +318,8 @@ function build(){
  a("けが・寒さ・暮らし","blanket","アルミブランケット・寝袋",n,"枚","","アルミブランケット 防災");
  a("けが・寒さ・暮らし","wrap","食品用ラップ・アルミホイル",2,"本","食器に敷けば洗い水を節約できる","食品用ラップ");
  a("けが・寒さ・暮らし","cash","小銭・現金",1,"袋","停電時はキャッシュレスが使えない","");
+ a("生理のある方がいる場合","napkin","生理用ナプキン(長時間用もあると安心)",women*(d>=7?2:1),"パック","1人あたり、3日分で1パック・7日分で2パックを目安にしています。使い慣れた物を","");
+ a("生理のある方がいる場合","shorts","サニタリーショーツ",women*(d>=7?2:1),"枚","汚れた時に替えられるように","");
  a("乳幼児がいる場合","milk","液体ミルク・粉ミルクと哺乳瓶",infant*d,"日分","お湯が使えない時は液体ミルクが便利","液体ミルク 常温保存");
  a("乳幼児がいる場合","dia","おむつ",infant*8*d,"枚","1日8枚で計算","おむつ 新生児 テープ");
  a("乳幼児がいる場合","wipe","おしりふき",infant*d,"パック","","おしりふき 厚手");
@@ -366,7 +376,7 @@ function copyNeed(){
  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>alert("コピーしました"),()=>prompt("コピーしてください",t));
 }
 function resetOwn(){if(confirm("チェックをすべて外しますか?")){S.own={};save();render()}}
-["adult","kid","infant","elder","pet"].forEach(k=>{
+["adult","kid","infant","elder","pet","women"].forEach(k=>{
  const e=$("#"+k),mx=k==="adult"?12:8;
  for(let i=0;i<=mx;i++)e.add(new Option(i+(k==="pet"?" 匹":" 人"),i));
  e.value=Math.min(S[k],mx);
