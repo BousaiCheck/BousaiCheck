@@ -146,6 +146,11 @@ const img=p=>"https://hbb.afl.rakuten.co.jp/hgb/"+p.id+"/?me_id="+p.me+"&item_id
 const PK={
  water:[{n:6,label:"保存水 1ケース（2L×6）",id:"595bc134.327a865d.595bc135.215997a6",path:"seishoku3941/10000015",me:"1368460",item:"10000015",img:"seishoku3941/cabinet/06478174/imgrc0079407869.jpg"}],
  mobile:[{n:1,label:"防災士監修 ソーラー・手回し対応 モバイルバッテリー 63200mAh",id:"596c5849.2f909f02.596c584a.96d702a9",path:"torreya-shop/100000037",me:"1322774",item:"10000074",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/torreya-shop/cabinet/09381333/thumbnail240328.jpg?_ex=300x300",sz:"300x300"}],
+ mask:[{label:"ニトリル手袋 使い捨て 100枚〜",id:"597866eb.0c8114af.597866ec.0481ab33",path:"tenkapas/glove001",me:"1249475",item:"10010258",img:"tenkapas/cabinet/item_image/item_health_beauty/sanitary-goods/glove001-2026.jpg"}],
+ bat:[{n:20,label:"パナソニック アルカリ乾電池 4本入り×5（20本・10年保存）",id:"597871ab.f46f9978.597871ac.8a6a6ace",path:"bp-shop/10017803-ko3",me:"1281850",item:"10017928",u:"https://image.rakuten.co.jp/bp-shop/cabinet/goq013/imgrc0063255631.jpg?_ex=300x300",sz:"300x300"}],
+ gas:[{n:3,label:"アイリスオーヤマ カセットボンベ（3本セット）",id:"59787ab7.8620a036.59787ab8.2b1b880b",path:"irisplaza-r/7253292",me:"1358201",item:"10149345",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/10535017/imgrc0101523164.jpg?_ex=300x300",sz:"300x300"}],
+ stove:[{n:1,label:"アイリスオーヤマ カセットコンロ（薄型・卓上）",c:"アイリスオーヤマだから安心安全！",id:"59787ab7.8620a036.59787ab8.2b1b880b",path:"irisplaza-r/7250572",me:"1358201",item:"10149259",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/irisplaza-r/cabinet/tasya106/7250572.jpg?_ex=300x300",sz:"300x300"}],
+ aid:[{n:1,label:"防災士監修 救急セット 27点",id:"596c5849.2f909f02.596c584a.96d702a9",path:"torreya-shop/100000045",me:"1322774",item:"10000085",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/torreya-shop/cabinet/10949533/thumbnail.jpg?_ex=300x300",sz:"300x300"}],
  side:[{n:36,label:"サンヨー堂 おかず缶詰 36缶セット（6種×各6缶）",id:"5974d821.31c23598.5974d822.88d4b3cd",path:"wide/78590",me:"1190950",item:"10073966",u:"https://image.rakuten.co.jp/wide/cabinet/pn70000-26/78590-00-01---.jpg?_ex=300x300",sz:"300x300"}],
  snack:[{n:6,label:"ライフストック 栄養補給ゼリー 5年保存（6個入り）",id:"59750f8a.97860fc0.59750f8b.24e8cc1d",path:"aichi12/10010701",me:"1266425",item:"10024166",u:"https://image.rakuten.co.jp/aichi12/cabinet/img_42/s-10014220-01.jpg?_ex=300x300",sz:"300x300"}],
  wet:[{n:6,min:6,label:"アルコールウェットティッシュ 100枚入（6パック）",id:"5975a105.1b5f0ef5.5975a106.af91ffcf",path:"otoriyosestadium/509209-24set",me:"1265461",item:"10005936",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/otoriyosestadium/cabinet/other/as-original/as-awet/509209_v_rn.jpg?_ex=300x300",sz:"300x300"}],
@@ -157,7 +162,7 @@ const PK={
   {n:9,label:"非常食セット 1人用/3日分 9食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001686",me:"1285908",item:"10010955",img:"peaceup/cabinet/items-thumbnail2/10001686sku-01.jpg"},
   {n:36,label:"非常食セット 4人用/3日分 36食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001680",me:"1285908",item:"10010947",img:"peaceup/cabinet/items-thumbnail2/10001680sku-01.jpg"}]
 };
-const SHOP=new Set(["paper","wet"]),SHOPMSG="推奨の商品は、お近くのスーパーで買うのが最も安く、すぐに調達できます。";
+const SHOP=new Set(["paper","wet","bag","wrap"]),SHOPMSG="🛒 おすすめは、お近くのスーパーでの購入です。最も安く即備蓄できます。",SHOPX={med:"🏥 対策として、通われている薬局にご相談されることをおすすめします。"};
 function combo(need,P){
  if(P.some(p=>!p.n))return{none:1,cnt:P.map(()=>0)};
  if(P.every(p=>p.n===P[0].n)){const k=Math.ceil(need/P[0].n);return{alt:P.length>1,cnt:P.map(()=>k),total:k*P[0].n}}
@@ -324,10 +329,10 @@ function needRow(i){
  if(P.length){
   const r=combo(i.qty,P),ex=r.total-i.qty;
   body='<div class="packs">'+P.map((p,k)=>{if(!r.none&&!r.cnt[k])return"";const u=aff(p),rl=' target="_blank" rel="nofollow sponsored noopener"';
-   return'<div class="pk"><a href="'+u+'"'+rl+'><img src="'+img(p)+'" alt="'+esc(p.label)+'" width="92" height="92" loading="lazy"></a><div class="pi"><a class="pt" href="'+u+'"'+rl+'>'+esc(p.label)+(r.none?"":' <em>× '+r.cnt[k]+'</em>')+'</a><a class="btn sub" href="'+u+'"'+rl+'>推奨される商品</a></div></div>'}).join("")
+   return'<div class="pk"><a href="'+u+'"'+rl+'><img src="'+img(p)+'" alt="'+esc(p.label)+'" width="92" height="92" loading="lazy"></a><div class="pi"><a class="pt" href="'+u+'"'+rl+'>'+esc(p.label)+(r.none?"":' <em>× '+r.cnt[k]+'</em>')+'</a>'+(p.c?'<small>'+esc(p.c)+'</small>':"")+'<a class="btn sub" href="'+u+'"'+rl+'>推奨される商品</a></div></div>'}).join("")
   +(r.none?"":r.alt?'<small>どれか1つを選べば、'+i.qty+i.unit+'そろいます</small>':'<small>合計 '+r.total+i.unit+(ex?'('+ex+i.unit+'多め)':'(必要数ちょうど)')+'</small>')+'</div>';
- }else if(SHOP.has(i.id))msg=SHOPMSG;else if(i.q)btn='<a class="btn sub" href="'+href(i)+'" target="_blank" rel="sponsored noopener">推奨</a>';
- return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">対策にこちらの商品がﾒﾁｬおすすめ✨ <span class="adtag">PR</span></p>'+body+btn:(msg?'<p class="shop">🛒 '+msg+'</p>':""))+'</div></div>';
+ }else if(SHOP.has(i.id))msg=SHOPMSG;else if(SHOPX[i.id])msg=SHOPX[i.id];else if(i.id==="cash"){}else if(i.q)btn='<a class="btn sub" href="'+href(i)+'" target="_blank" rel="sponsored noopener">推奨</a>';
+ return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">対策にこちらの商品がﾒﾁｬおすすめ✨ <span class="adtag">PR</span></p>'+body+btn:(msg?'<p class="shop">'+msg+'</p>':""))+'</div></div>';
 }
 function sb(){const m=document.querySelectorAll(".meter"),b=document.querySelector("#sbar");if(!m.length||!b)return;
  const r1=m[0].getBoundingClientRect(),r2=m[1]&&m[1].getBoundingClientRect(),H=window.innerHeight||0;
