@@ -59,6 +59,8 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 .sbar[data-rk="4"]{--fc:linear-gradient(135deg,#f6f7f9,#a9b0ba);--ft:#222;--lc:#9aa1ab}
 .sbar[data-rk="5"]{--fc:linear-gradient(135deg,#ffe685,#d4a017);--ft:#3a2a00;--lc:#d4a017}
 .sbar[data-rk="6"]{--fc:linear-gradient(135deg,#f4fdff,#a8e4f7 55%,#62c1e8);--ft:#08384f;--lc:#4fb8e3}@media print{.sbar,.toast{display:none!important}}.grade:empty{display:none}.grade .gt{font-size:1.25rem;font-weight:700}.gp{display:inline-block;margin-left:10px;font-size:.85rem;color:var(--mu);font-weight:400}.grade p{margin:8px 0 10px;line-height:1.8}
+#days.on7{color:#7a5200;font-weight:700;border-color:#d4a017;background:#fff8e1}.praise{margin:12px 0 0;padding:8px 12px;background:#fff8e1;border:1px solid #e0b43a;border-radius:6px;color:#7a5200;font-weight:700}.praise:empty{display:none}
+.shop{margin:12px 0 0;padding:8px 12px;background:#fff;border:1px solid var(--bd);border-radius:6px;font-weight:700;line-height:1.7}
 .refs{padding-left:20px}.refs li{margin:4px 0}
 @media(max-width:480px){.grid{grid-template-columns:1fr 1fr}}
 @media print{
@@ -76,7 +78,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p>入力した内容は、この端末の中だけで処理され、外部に送信されることは一切ありません。</p>
 </div></header>
 <main>
-
+ 
 <h2 id="form-h">家族の人数を選択してください</h2>
 <section id="form" class="card" aria-labelledby="form-h">
 <div class="grid">
@@ -88,9 +90,10 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <label class="f">備える日数
 <select id="days"><option value="3">3日分(最低ライン)</option><option value="7">7日分(推奨)</option></select></label>
 </div>
+<p class="praise" id="dpraise"></p>
 <p class="note" style="margin-bottom:0">入力内容はこの端末のブラウザ内にだけ保存されます。サーバーには送信されません。</p>
 </section>
-
+ 
 <h2>あなたのお家は大丈夫？さっそくチェック！</h2>
 <div class="meter" role="status" aria-live="polite"><div class="big pcl">人数を選んでください</div><div class="bar"><i></i></div><p class="mn">備えは、ご家庭の経済的に無理のない範囲で構いません。まずは「優先」の物から、少しずつで大丈夫です。</p></div>
 <h2>持っている物にチェックを入れてください</h2>
@@ -101,14 +104,14 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p class="note">PR:「推奨される商品」のリンクは広告(アフィリエイト)を含みます。価格・在庫は変わるため、各ショップでご確認ください。</p>
 <div id="need"></div>
 <div class="tools"><button class="btn" onclick="copyNeed()">リストをコピー(LINEなどで共有)</button><button class="btn sub" onclick="resetOwn()">チェックをリセット</button></div>
-
+ 
 <h2 id="hz">家の周りの危険を確認する</h2>
 <div class="card">
 <p style="margin-top:0">住所ごとの浸水・土砂災害・津波のリスクは、国の公式地図で確認します。</p>
 <a class="btn" href="https://disaportal.gsi.go.jp/" target="_blank" rel="noopener">重ねるハザードマップを開く</a>
 <p class="note" style="margin-bottom:0">国土地理院の公式サイトです。避難の最終判断は、自治体・気象庁の最新情報に従ってください。</p>
 </div>
-
+ 
 <h2 id="rem">備蓄の点検日を、カレンダーに登録する</h2>
 <div class="card">
 <p style="margin-top:0">半年ごとに繰り返す点検の予定を作ります。スマホのカレンダーに取り込めます。</p>
@@ -116,7 +119,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <p><button onclick="mkIcs()">カレンダーファイルを作る</button></p>
 <p class="note" style="margin-bottom:0">ダウンロードしたファイルを開くと、Google カレンダーや iPhone のカレンダーに追加できます。</p>
 </div>
-
+ 
 <footer>
 <p><b>目安の根拠:</b>水は1人1日3L、簡易トイレは1人1日5回、食料は1人1日3食を基準にしています。政府・自治体が公開している備蓄の考え方(最低3日分、できれば1週間分)に沿った概算です。持病・乳幼児・高齢の方がいる場合は、かかりつけ医や自治体の案内も確認してください。</p>
 <p><b>広告について:</b>「推奨される商品」のリンクは広告(アフィリエイト)を含みます(「推奨」のボタンは、楽天市場の検索結果へのリンクです)。購入されると運営の収益になることがありますが、診断結果には影響しません。価格・在庫は各ショップでご確認ください。</p>
@@ -143,6 +146,9 @@ const img=p=>"https://hbb.afl.rakuten.co.jp/hgb/"+p.id+"/?me_id="+p.me+"&item_id
 const PK={
  water:[{n:6,label:"保存水 1ケース（2L×6）",id:"595bc134.327a865d.595bc135.215997a6",path:"seishoku3941/10000015",me:"1368460",item:"10000015",img:"seishoku3941/cabinet/06478174/imgrc0079407869.jpg"}],
  mobile:[{n:1,label:"防災士監修 ソーラー・手回し対応 モバイルバッテリー 63200mAh",id:"596c5849.2f909f02.596c584a.96d702a9",path:"torreya-shop/100000037",me:"1322774",item:"10000074",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/torreya-shop/cabinet/09381333/thumbnail240328.jpg?_ex=300x300",sz:"300x300"}],
+ side:[{n:36,label:"サンヨー堂 おかず缶詰 36缶セット（6種×各6缶）",id:"5974d821.31c23598.5974d822.88d4b3cd",path:"wide/78590",me:"1190950",item:"10073966",u:"https://image.rakuten.co.jp/wide/cabinet/pn70000-26/78590-00-01---.jpg?_ex=300x300",sz:"300x300"}],
+ snack:[{n:6,label:"ライフストック 栄養補給ゼリー 5年保存（6個入り）",id:"59750f8a.97860fc0.59750f8b.24e8cc1d",path:"aichi12/10010701",me:"1266425",item:"10024166",u:"https://image.rakuten.co.jp/aichi12/cabinet/img_42/s-10014220-01.jpg?_ex=300x300",sz:"300x300"}],
+ wet:[{n:6,min:6,label:"アルコールウェットティッシュ 100枚入（6パック）",id:"5975a105.1b5f0ef5.5975a106.af91ffcf",path:"otoriyosestadium/509209-24set",me:"1265461",item:"10005936",u:"https://thumbnail.image.rakuten.co.jp/@0_mall/otoriyosestadium/cabinet/other/as-original/as-awet/509209_v_rn.jpg?_ex=300x300",sz:"300x300"}],
  toilet:[{n:50,label:"簡易トイレ 15年長期保存 凝固剤セット（50回分）",id:"596c32f9.57358ad4.596c32fa.0d976c92",path:"soppy/o302419",me:"1402930",item:"10000378",img:"soppy/cabinet/08931518/o302419.jpg"}],
  light:[
   {n:1,label:"LEDヘッドライト 小型・軽量",id:"596c3f41.1eb88443.596c3f42.1867163f",path:"okbasket/20180417s0003",me:"1349929",item:"10000044",img:"okbasket/cabinet/2024/imgrc0092878006.jpg"},
@@ -151,6 +157,7 @@ const PK={
   {n:9,label:"非常食セット 1人用/3日分 9食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001686",me:"1285908",item:"10010955",img:"peaceup/cabinet/items-thumbnail2/10001686sku-01.jpg"},
   {n:36,label:"非常食セット 4人用/3日分 36食",id:"595bc78e.71710bd7.595bc78f.343adee2",path:"peaceup/10001680",me:"1285908",item:"10010947",img:"peaceup/cabinet/items-thumbnail2/10001680sku-01.jpg"}]
 };
+const SHOP=new Set(["paper","wet"]),SHOPMSG="推奨の商品は、お近くのスーパーで買うのが最も安く、すぐに調達できます。";
 function combo(need,P){
  if(P.some(p=>!p.n))return{none:1,cnt:P.map(()=>0)};
  if(P.every(p=>p.n===P[0].n)){const k=Math.ceil(need/P[0].n);return{alt:P.length>1,cnt:P.map(()=>k),total:k*P[0].n}}
@@ -167,7 +174,7 @@ let INIT=true,PREV=null;
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
-
+ 
 const SR={
 a:["内閣府「避難所におけるトイレの確保・管理ガイドライン」","https://www.bousai.go.jp/taisaku/hinanjo/pdf/2204hinanjo_toilet_guideline.pdf"],
 b:["共同通信「災害時に繰り返されるトイレ問題」(2026/9/18)","https://www.kyodo.co.jp/life/2026-09-18_4036254/"],
@@ -313,14 +320,14 @@ function build(){
 }
 function href(it){return "https://search.rakuten.co.jp/search/mall/"+encodeURIComponent(it.q)+"/"}
 function needRow(i){
- const pri=PRI.has(i.id)?'<span class="pri">優先</span>':"",P=PK[i.id];let body="",btn="";
- if(P){
+ const pri=PRI.has(i.id)?'<span class="pri">優先</span>':"",P=(PK[i.id]||[]).filter(p=>!p.min||i.qty>=p.min);let body="",btn="",msg="";
+ if(P.length){
   const r=combo(i.qty,P),ex=r.total-i.qty;
   body='<div class="packs">'+P.map((p,k)=>{if(!r.none&&!r.cnt[k])return"";const u=aff(p),rl=' target="_blank" rel="nofollow sponsored noopener"';
    return'<div class="pk"><a href="'+u+'"'+rl+'><img src="'+img(p)+'" alt="'+esc(p.label)+'" width="92" height="92" loading="lazy"></a><div class="pi"><a class="pt" href="'+u+'"'+rl+'>'+esc(p.label)+(r.none?"":' <em>× '+r.cnt[k]+'</em>')+'</a><a class="btn sub" href="'+u+'"'+rl+'>推奨される商品</a></div></div>'}).join("")
   +(r.none?"":r.alt?'<small>どれか1つを選べば、'+i.qty+i.unit+'そろいます</small>':'<small>合計 '+r.total+i.unit+(ex?'('+ex+i.unit+'多め)':'(必要数ちょうど)')+'</small>')+'</div>';
- }else if(i.q)btn='<a class="btn sub" href="'+href(i)+'" target="_blank" rel="sponsored noopener">推奨</a>';
- return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">対策としておすすめの商品は👇🏻✨ <span class="adtag">PR</span></p>'+body+btn:"")+'</div></div>';
+ }else if(SHOP.has(i.id))msg=SHOPMSG;else if(i.q)btn='<a class="btn sub" href="'+href(i)+'" target="_blank" rel="sponsored noopener">推奨</a>';
+ return '<div class="need"><div class="t"><b>'+pri+esc(i.name)+'</b> 必要 '+i.qty+i.unit+'<small>'+esc(i.note)+'</small>'+why(i.id,(body||btn)?'<p class="rec">対策にこちらの商品がﾒﾁｬおすすめ✨ <span class="adtag">PR</span></p>'+body+btn:(msg?'<p class="shop">🛒 '+msg+'</p>':""))+'</div></div>';
 }
 function sb(){const m=document.querySelectorAll(".meter"),b=document.querySelector("#sbar");if(!m.length||!b)return;
  const r1=m[0].getBoundingClientRect(),r2=m[1]&&m[1].getBoundingClientRect(),H=window.innerHeight||0;
@@ -347,7 +354,7 @@ function render(){
  grade(L.length-miss.length,L.length);
  miss.sort((a,b)=>PRI.has(b.id)-PRI.has(a.id));
  nd.innerHTML=miss.length?miss.map(needRow).join(""):'<p class="card">必要な物はすべてそろっています。半年ごとの点検で、期限と数量を確かめましょう。</p>';
- window.NEED=miss.map(i=>{const P=PK[i.id];let t="・"+i.name+" "+i.qty+i.unit;if(P){const r=combo(i.qty,P);t+=" → "+P.map((p,k)=>r.cnt[k]?p.label+"×"+r.cnt[k]:"").filter(Boolean).join(r.alt?" または ":" + ")}return t}).join("\n");
+ window.NEED=miss.map(i=>{const P=(PK[i.id]||[]).filter(p=>!p.min||i.qty>=p.min);let t="・"+i.name+" "+i.qty+i.unit;if(P.length){const r=combo(i.qty,P);t+=" → "+P.map((p,k)=>r.cnt[k]?p.label+"×"+r.cnt[k]:"").filter(Boolean).join(r.alt?" または ":" + ")}return t}).join("\n");
 }
 function copyNeed(){
  const t="【お家の買い足しリスト】\n"+(window.NEED||"(なし)");
@@ -360,8 +367,9 @@ function resetOwn(){if(confirm("チェックをすべて外しますか?")){S.ow
  e.value=Math.min(S[k],mx);
  e.addEventListener("change",()=>{S[k]=+e.value;save();render()});
 });
-$("#days").value=String(S.days);
-$("#days").addEventListener("change",e=>{S.days=+e.target.value;save();render()});
+$("#days").value=String(S.days);dp();
+function dp(){$("#days").classList.toggle("on7",S.days===7);$("#dpraise").textContent=S.days===7?"✨ 7日分を選びました！とても心強い備えです。":""}
+$("#days").addEventListener("change",e=>{S.days=+e.target.value;save();dp();render()});
 $("#list").addEventListener("change",e=>{
  const id=e.target.dataset.id;if(!id)return;
  S.own[id]=e.target.checked;save();render();
