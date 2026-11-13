@@ -233,7 +233,7 @@ pfood:["東日本大震災では、自宅に取り残されたり飼い主とは
 psheet:["避難所では、ペットの飼養スペースが限られます。トイレ用品がないと、排泄物の処理に困ります。","j"],
 pcage:["避難所のペットの受け入れ方法は、場所によって違います。キャリーやケージ、ワクチン証明があれば、ペットと避難しやすくなります。","j"]};
 function why(id,x){x=x||"";const w=W[id];if(!w)return x;
- return'<details class="why"><summary>なかったらどうなる?</summary><div class="wr">'+(PH[id]?"":icon(id))+'<p>'+esc(w[0])+'</p></div>'+photo(id)+'<p class="src">'+(w.length>1?'出典:'+w.slice(1).map(k=>'<a href="'+SR[k][1]+'" target="_blank" rel="noopener">'+esc(SR[k][0])+'</a>').join(' / '):'一般的な説明です')+'</p>'+x+'</details>'}
+ return'<details class="why"><summary>なかったらどうなる?</summary><div class="wr">'+""+'<p>'+esc(w[0])+'</p></div>'+photo(id)+'<p class="src">'+(w.length>1?'出典:'+w.slice(1).map(k=>'<a href="'+SR[k][1]+'" target="_blank" rel="noopener">'+esc(SR[k][0])+'</a>').join(' / '):'一般的な説明です')+'</p>'+x+'</details>'}
 const GR=[
 [100,"防災マスター🏆","すべての項目がそろっています！ここまで備えているご家庭は、とても貴重です。あとは半年ごとの期限チェックを続ければ完璧です。備えのコツを、ぜひお友達にも教えてあげてください。",1],
 [85,"災害対策の上級者✨","これだけの備えをもう出来ている人はかなり希少です！残りわずかを足せば、さらに安心。ぜひお友達にも共有して、みんなで備えを広げましょう。",1],
