@@ -86,7 +86,7 @@ footer{margin-top:40px;font-size:.82rem;color:var(--mu)}
 <label class="f">小学生以下<select id="kid"></select></label>
 <label class="f">乳幼児(2歳くらいまで)<select id="infant"></select></label>
 <label class="f">高齢の方(65歳以上)<select id="elder"></select></label>
-<label class="f">生理用品をお使いの方<small>上の人数のうち</small><select id="women"></select></label>
+<label class="f">生理用品を必要とする方<small>上の人数のうち</small><select id="women"></select></label>
 <label class="f">ペット<select id="pet"></select></label>
 <label class="f">備える日数
 <select id="days"><option value="3">3日分(最低ライン)</option><option value="7">7日分(推奨)</option></select></label>
@@ -318,8 +318,8 @@ function build(){
  a("けが・寒さ・暮らし","blanket","アルミブランケット・寝袋",n,"枚","","アルミブランケット 防災");
  a("けが・寒さ・暮らし","wrap","食品用ラップ・アルミホイル",2,"本","食器に敷けば洗い水を節約できる","食品用ラップ");
  a("けが・寒さ・暮らし","cash","小銭・現金",1,"袋","停電時はキャッシュレスが使えない","");
- a("生理用品をお使いの方がいる場合","napkin","生理用ナプキン(長時間用もあると安心)",women*(d>=7?2:1),"パック","1人あたり、3日分で1パック・7日分で2パックを目安にしています。使い慣れた物を","");
- a("生理用品をお使いの方がいる場合","shorts","サニタリーショーツ",women*(d>=7?2:1),"枚","汚れた時に替えられるように","");
+ a("生理用品を必要とする方がいる場合","napkin","生理用ナプキン(長時間用もあると安心)",women*(d>=7?2:1),"パック","1人あたり、3日分で1パック・7日分で2パックを目安にしています。使い慣れた物を","");
+ a("生理用品を必要とする方がいる場合","shorts","サニタリーショーツ",women*(d>=7?2:1),"枚","汚れた時に替えられるように","");
  a("乳幼児がいる場合","milk","液体ミルク・粉ミルクと哺乳瓶",infant*d,"日分","お湯が使えない時は液体ミルクが便利","液体ミルク 常温保存");
  a("乳幼児がいる場合","dia","おむつ",infant*8*d,"枚","1日8枚で計算","おむつ 新生児 テープ");
  a("乳幼児がいる場合","wipe","おしりふき",infant*d,"パック","","おしりふき 厚手");
