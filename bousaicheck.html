@@ -6,6 +6,17 @@
 <title>備蓄足りてるかな？一緒に確認しよう！|必要な備蓄量と足りない物がわかる</title>
 <meta name="description" content="家族の人数を入れるだけで、必要な備蓄量と足りない物がわかります。買い足しリストの共有もできる無料ツール。入力内容はこの端末の中にだけ保存されます。">
 <meta name="theme-color" content="#2f4a3c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="備蓄チェック">
+<meta property="og:title" content="うちの備蓄、足りてるかな？一緒に確認しよう！">
+<meta property="og:description" content="家族の人数を選ぶだけで、災害時に必要な物と数がわかります。無料・登録なし。">
+<meta property="og:url" content="https://bousaicheck.github.io/BousaiCheck/">
+<meta property="og:image" content="https://bousaicheck.github.io/BousaiCheck/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bousaicheck.github.io/BousaiCheck/ogp.png">
 <style>
 :root{--bg:#eef1ea;--card:#fff;--ink:#222;--mu:#5f5a52;--g:#2f4a3c;--gl:#e2e9de;--y:#b8923a;--bd:#d8d1c4;--bad:#9c2a2a}
 *{box-sizing:border-box}
@@ -293,8 +304,10 @@ mobile:P("R01T19191023TA0019.JPG","通信会社による支援（町役場１階
 blanket:P("IMI080615HI0239.jpg","避難所に積まれた応急物資","平成20年岩手・宮城内陸地震"),
 aid:P("NOT070326HI0114.jpg","輪島市役所に到着した医療期間関係者","平成19年能登半島地震")};
 PH.bat=PH.light;
+PH.glove=P("R02G200713TA0012.jpg","道路脇に積まれた災害廃棄物","令和2年7月豪雨");
+PH.cash=P("R07T250912ISAB0003.jpg","ATMが使用できなくなった金融機関","令和7年台風15号");
 function icon(id){return'<svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IP[IM[id]||"g"]+'<circle cx="54" cy="10" r="9" fill="#9c2a2a" stroke="none"/><path d="M54 5v6M54 15v.5" stroke="#fff" stroke-width="2.4"/></svg>'}
-function photo(id){const q=PH[id];return q?'<figure class="ph"><a href="'+esc(q.src)+'" target="_blank" rel="noopener"><img src="'+esc(q.src)+'" alt="'+esc(q.alt)+'" loading="lazy"></a><figcaption><b>'+esc(q.t)+'</b>'+(q.d?'('+esc(q.d)+')':"")+'<br>出典(又は写真提供):(一財)消防防災科学センター「災害写真データベース」</figcaption></figure>':""}
+function photo(id){const q=PH[id];return q?'<figure class="ph"><a href="'+esc(q.src)+'" target="_blank" rel="noopener"><img src="'+esc(q.src)+'" alt="'+esc(q.alt)+'" loading="lazy" onerror="if(!this.dataset.r){this.dataset.r=1;this.src=this.src.replace(/\\.(jpg|JPG)$/,function(m,e){return e==\'jpg\'?\'.JPG\':\'.jpg\'})}"></a><figcaption><b>'+esc(q.t)+'</b>'+(q.d?'('+esc(q.d)+')':"")+'</figcaption></figure>':""}
 function build(){
  const{adult,kid,infant,elder,pet,women,days:d}=S,n=adult+kid+infant+elder,f=n-infant,L=[];
  const a=(cat,id,name,qty,unit,note,q)=>{if(qty>0)L.push({cat,id,name,qty,unit,note,q:q||name})};
@@ -399,7 +412,7 @@ function mkIcs(){
  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:"text/calendar"}));a.download="bosai-check.ics";a.click();
 }
 render();INIT=false;
-$("#phcredit").innerHTML=Object.keys(PH).length?"写真の出典(又は写真提供):(一財)消防防災科学センター「災害写真データベース」":"";
+$("#phcredit").innerHTML=Object.keys(PH).length?"出典(又は写真提供):(一財)消防防災科学センター「災害写真データベース」":"";
 </script>
 </body>
 </html>
